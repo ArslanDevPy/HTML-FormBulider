@@ -13,3 +13,15 @@ input[type=checkbox]:focus, input[type=radio]:focus {
   border: none;
   box-shadow: none;
 }
+#wrapper_div{
+  margin: 30px 20px;
+}
+@media only screen and (max-width: 600px) {
+  #wrapper_div{
+    margin: 0px;
+    margin-top: 30px;
+  }
+  #card_1_margin_bottom{
+    margin-bottom: 20px;
+  }
+}
