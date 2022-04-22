@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+.dropdown-menu {
+  float: none!important;
+  display: block!important;
+  min-height: 50px;
+}
+
+input[type=checkbox]:focus, input[type=radio]:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}

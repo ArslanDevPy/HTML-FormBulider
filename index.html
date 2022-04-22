@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>form builder</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+       <link rel="stylesheet" href="style.css">
+</head>
+<!-- HTML-FormBulider -->
+<body>
+    <div class="wrapper" style="padding: 50px;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-7">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between">
+                            <h5 class="pt-1">Form View</h5>
+                            <div>
+                                <button type="button" class="btn btn-info" onclick="saveFormElements()">Save form</button>
+                                <button type="button" class="btn btn-warning" onclick="loadFormElements()">Load form</button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form action="" id="formBuilder" class="form-horizontal p-1 m-1">
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <form action="" id="formDefinition">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Form Fields</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="nav nav-pills mb-3 bg-light rounded" id="pills-tab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="pills-text-tab" data-toggle="pill"
+                                            href="#pills-text">Text Field</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="pills-button-tab" data-toggle="pill"
+                                            href="#pills-button">Button</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="pills-dropdown-tab" data-toggle="pill"
+                                            href="#pills-dropdown">Drop Down</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="pills-number-tab" data-toggle="pill"
+                                            href="#pills-number">Number Field</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="pills-checkbox-tab" data-toggle="pill"
+                                            href="#pills-checkbox">Check Box</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="pills-textarea-tab" data-toggle="pill"
+                                            href="#pills-textarea">Text Area</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="pills-tabContent">
+                                    <!-- Input Field Definition -->
+                                    <div class="tab-pane fade show active" id="pills-text">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right"
+                                                for="inplabel">Label</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="inplabel"
+                                                    data-field="label">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="inputtype">Text Field
+                                                Type</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control" id="inputtype" data-field="type">
+                                                    <option value="text">Text</option>
+                                                    <option value="password">Password</option>
+                                                    <option value="email">E-Mail</option>
+                                                    <option value="tel">Tel</option>
+                                                    <option value="url">Url</option>
+                                                    <option value="color">Color</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="inpname">Name</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="inpname" data-field="name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="inpplaceholder">Place
+                                                Holder</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="inpplaceholder"
+                                                    data-field="placeholder">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right"
+                                                for="inpclass">Classes</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="inpclass" data-field="class"
+                                                    value="form-control col-sm-9">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="inpvalue">Default
+                                                Value</label>
+                                            <div class="col-sm-9"><input type="text" class="form-control" id="inpvalue"
+                                                    data-field="value">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="inplength">Max
+                                                Length</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" class="form-control" id="inplength"
+                                                    data-field="maxlength" min="1" value="20">
+                                            </div>
+                                        </div>
+                                        <button data-target="input" data-field="tag" value="input" type="button"
+                                            class="btn btn-primary">
+                                            Add to form</button>
+                                    </div>
+                                    <!-- Button Definitions -->
+                                    <div class="tab-pane fade" id="pills-button">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right"
+                                                for="btnlabel">Label</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="btnlabel" data-field="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="btntype">Button
+                                                Type</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control" id="btntype" data-field="type">
+                                                    <option value="button">Button</option>
+                                                    <option value="submit">Submit</option>
+                                                    <option value="reset">Reset</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="btnname">Name</label>
+                                            <div class="col-sm-9"><input type="text" class="form-control" id="btnname"
+                                                    data-field="name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right"
+                                                for="btnclass">Classes</label>
+                                            <div class="col-sm-9"><input type="text" class="form-control" id="btnclass"
+                                                    data-field="class" value="btn btn-secondary mx-1">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right"
+                                                for="btnvalue">Value</label>
+                                            <div class="col-sm-9"><input type="text" class="form-control" id="btnvalue"
+                                                    data-field="value">
+                                            </div>
+                                        </div>
+                                        <button data-target="button" type="button" data-field="tag" value="button"
+                                            class="btn btn-primary">
+                                            Add to form</button>
+                                    </div>
+                                    <!-- Drop Down Definition -->
+                                    <div class="tab-pane fade" id="pills-dropdown">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right"
+                                                for="ddlabel">Label</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="ddlabel" data-field="label">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="ddname">Name</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="ddname" data-field="name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="ddplaceholder">Place
+                                                Holder</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="ddplaceholder"
+                                                    data-field="placeholder">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right"
+                                                for="ddclass">Classes</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="ddclass" data-field="class"
+                                                    value="form-control col-sm-9">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="ddvalue">Default
+                                                Value</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="ddvalue" data-field="value">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="ddOptName">Option
+                                                Title,Value</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control" id="ddOptName"
+                                                    placeholder="Name" data-optfield="name">
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control" id="ddOptValue"
+                                                    placeholder="Value" data-optfield="value">
+                                            </div>
+                                            <button type="button" class="btn btn-info" onclick="addOption()">Add
+                                                Option</button>
+                                            <div class="col-sm-3 mt-1"></div>
+                                            <div class="col-sm-9 mt-1">
+                                                <div class="dropdown-menu position-static">
+                                                    <!-- <a class="dropdown-item" href="#">Action</a> -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <button data-target="select" type="button" data-field="tag" value="select"
+                                            class="btn btn-primary">Add to form</button>
+                                    </div>
+                                    <!-- Number Field Definition -->
+                                    <div class="tab-pane fade" id="pills-number" role="tabpanel"
+                                        aria-labelledby="pills-number-tab">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right"
+                                                for="numlabel">Label</label>
+                                            <div class="col-sm-9"><input type="text" class="form-control" id="numlabel"
+                                                    data-field="label">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="numname">Name</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="numname" data-field="name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="inputtype">Field
+                                                Type</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control" id="inputtype" data-field="type">
+                                                    <option value="number">Number</option>
+                                                    <option value="range">Range</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="numplaceholder">Place
+                                                Holder</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="numplaceholder"
+                                                    data-field="placeholder">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right"
+                                                for="numclass">Classes</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="numclass" data-field="class"
+                                                    value="form-control col-sm-9">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="numvalue">Default
+                                                Value</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="numvalue" data-field="value"
+                                                    value="0">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="nummin">Min</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" class="form-control" id="nummin" data-field="min"
+                                                    value="0">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="nummax">Max</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" class="form-control" id="nummax" data-field="max">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="numstep">Step</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" class="form-control" id="numstep" data-field="step"
+                                                    value="1">
+                                            </div>
+                                        </div>
+                                        <button data-target="input" type="button" data-field="tag" value="input"
+                                            class="btn btn-primary">
+                                            Add to form</button>
+                                    </div>
+                                    <!-- Check Box Definition -->
+                                    <div class="tab-pane fade" id="pills-checkbox" role="tabpanel"
+                                        aria-labelledby="pills-checkbox-tab">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right"
+                                                for="chklabel">Label</label>
+                                            <div class="col-sm-9"><input type="text" class="form-control" id="chklabel"
+                                                    data-field="label">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="chkname">Name</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="chkname" data-field="name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="chktype">Field
+                                                Type</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control" id="chktype" data-field="type">
+                                                    <option value="checkbox">Check Box</option>
+                                                    <option value="radio">Radio Box</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right"
+                                                for="chkclass">Classes</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="chkclass" data-field="class"
+                                                    value="form-control form-check-input col-sm-9">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="chkvalue">Default
+                                                Value</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="chkvalue" data-field="value"
+                                                    value="">
+                                            </div>
+                                        </div>
+                                        <button data-target="input" type="button" data-field="tag" value="input"
+                                            class="btn btn-primary">
+                                            Add to form</button>
+                                    </div>
+                                    <!-- Text Area Definition -->
+                                    <div class="tab-pane fade" id="pills-textarea" role="tabpanel"
+                                        aria-labelledby="pills-textarea-tab">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right"
+                                                for="txalabel">Label</label>
+                                            <div class="col-sm-9"><input type="text" class="form-control" id="txalabel"
+                                                    data-field="label">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="txaname">Name</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="txaname" data-field="name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="txaplaceholder">Place
+                                                Holder</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="txaplaceholder"
+                                                    data-field="placeholder">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right"
+                                                for="txaclass">Classes</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="txaclass" data-field="class"
+                                                    value="form-control col-sm-9">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="txavalue">Default
+                                                Value</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="txavalue" data-field="value"
+                                                    value="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right" for="txarow">Rows</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" class="form-control" id="txarow" data-field="rows">
+                                            </div>
+                                        </div>
+                                        <button data-target="textarea" type="button" data-field="tag" value="textarea"
+                                            class="btn btn-primary">
+                                            Add to form</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
+       
+</body>
+
+</html>
